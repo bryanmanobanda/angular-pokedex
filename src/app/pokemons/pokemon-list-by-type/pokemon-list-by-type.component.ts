@@ -10,6 +10,7 @@ import { CategoryService } from 'src/app/category.service';
 export class PokemonListByTypeComponent implements OnInit {
 
   pokemonList:any;
+  pokemonIds:any[];
 
   constructor(private categoryService: CategoryService, private activateRoute: ActivatedRoute) { }
 
@@ -17,9 +18,14 @@ export class PokemonListByTypeComponent implements OnInit {
     this.activateRoute.paramMap.subscribe((param) => {
       let id= param.get('id');
       this.categoryService.getPokemonDetailsType(Number(id)).subscribe({
-        next: (data) => this.pokemonList = data.pokemon,
+        next: (data) => {
+          this.pokemonList = data.pokemon;
+          this.pokemonIds = [];
+          this.pokemonList.forEach((item:any) => {
+            this.pokemonIds.push(item.pokemon.url.slice(0,-1).split('/').pop());
+          });
+        }
       });
     });
   }
-
 }

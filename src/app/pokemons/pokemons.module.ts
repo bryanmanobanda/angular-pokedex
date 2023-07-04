@@ -4,16 +4,17 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { RouterModule } from '@angular/router';
 import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
-
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonListByTypeComponent
+    PokemonListByTypeComponent,
+    PokemonDetailComponent,
   ],
   imports: [
-    CommonModule,MatGridListModule, RouterModule.forChild([
+    CommonModule,MatGridListModule, MatCardModule, RouterModule.forChild([
       {path: 'pokemon-list', component:PokemonListComponent},
       {path: 'pokemon-list-by-type/:id', component:PokemonListByTypeComponent},
     ]),
