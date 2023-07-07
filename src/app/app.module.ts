@@ -15,6 +15,7 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonsModule } from './pokemons/pokemons.module';
+import { StatisticsModule } from './statistics/statistics.module';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, ObservableComponent, PageNotFoundComponent],
@@ -27,6 +28,7 @@ import { PokemonsModule } from './pokemons/pokemons.module';
     MatCardModule,
     CategoriesModule,
     PokemonsModule,
+    StatisticsModule,
     RouterModule.forRoot([
       {path: '', redirectTo:'category-list', pathMatch: 'full'},
       {path: '**', component:PageNotFoundComponent}

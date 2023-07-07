@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   poxedexBaseUrl: 'https://pokeapi.co/api/v2',
+  pokeStaticsUrl: 'wss://pokemon-statistics-be19c4542f3c.herokuapp.com/'
 };
 
 /*
