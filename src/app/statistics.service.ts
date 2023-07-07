@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class StatisticsService {
 
-  private socket:any; 
-  public battleStaticMessage = new Subject<string>();
+  private socket$:any; 
+  public battleStaticMessage$ = new Subject<string>();
   // Subject permite convertir informacion a stream (next, complete, error, subscribe)
   // .next -> Enviar informacion al stream
   // .complete -> Cerrar el canal
@@ -18,19 +18,33 @@ export class StatisticsService {
   constructor() { }
 
   public connect():void{
-    this.socket = this.getNewWebSocket();
-    this.socket.subscribe({
+    this.socket$ = this.getNewWebSocket();
+    this.socket$.subscribe({
       next: (data:any)=>{
-        this.battleStaticMessage.next(JSON.stringify(data));
+        this.battleStaticMessage$.next(JSON.stringify(data));
       },
     });
   }
 
   private getNewWebSocket(){
-    return webSocket(environment.pokeStaticsUrl);
+    return webSocket({
+      url: environment.pokeStaticsUrl,
+      openObserver:{
+        next: () => {
+          console.log('Websocket Conectado');
+        },
+      },
+      closeObserver: {
+        next: () => {
+          console.log('Socket se ha cerrado');
+          this.socket$ = undefined;
+          //this.connect(); usar con cuidado
+        },
+      },
+    });
   }
 
   close(){
-    this.socket.complete();
+    this.socket$.complete();
   }
 }
