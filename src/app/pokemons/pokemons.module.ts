@@ -6,12 +6,14 @@ import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import {MatCardModule} from '@angular/material/card';
+import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
 
 @NgModule({
   declarations: [
     PokemonListComponent,
     PokemonListByTypeComponent,
     PokemonDetailComponent,
+    PokemonFavoriteComponent,
   ],
   imports: [
     CommonModule,MatGridListModule, MatCardModule, RouterModule.forChild([
