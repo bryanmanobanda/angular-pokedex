@@ -7,6 +7,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import {MatCardModule} from '@angular/material/card';
 import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
+import{MatIconModule} from '@angular/material/icon';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component'
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.co
     PokemonListByTypeComponent,
     PokemonDetailComponent,
     PokemonFavoriteComponent,
+    MyFavoritesComponent,
   ],
   imports: [
-    CommonModule,MatGridListModule, MatCardModule, RouterModule.forChild([
+    CommonModule,MatGridListModule,MatIconModule, MatCardModule, RouterModule.forChild([
       {path: 'pokemon-list', component:PokemonListComponent},
+      {path: 'pokemon-my-favorites', component:MyFavoritesComponent},
       {path: 'pokemon-list-by-type/:id', component:PokemonListByTypeComponent},
     ]),
   ]

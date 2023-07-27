@@ -34,7 +34,7 @@ export class PokemonDetailComponent implements OnInit {
             console.log(e);
           });*/
           this.firestore.collection('pokemons').doc(data.id.toString()).set({
-            name:data.name,
+            name:data.name, //servicio para la pertinencia
           });
       },
     });

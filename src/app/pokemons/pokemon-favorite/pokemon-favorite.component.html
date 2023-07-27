@@ -1,1 +1,8 @@
-<p>pokemon-favorite works!</p>
+<ng-container *ngIf="data">
+    <button mat-icon-button (click)="markAsFavorite(false)" *ngIf="data.isFavorite">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button (click)="markAsFavorite(true)" *ngIf="!data.isFavorite">
+        <mat-icon>favorite_outline</mat-icon>
+    </button>
+</ng-container>
