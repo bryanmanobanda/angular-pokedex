@@ -7,7 +7,9 @@
             <a mat-button routerLinkActive="active" routerLink="/pokemon-list"> Pokemons </a>
             <a mat-button routerLinkActive="active" routerLink="/statics-list"> Estadisticas </a>
             <a mat-button routerLinkActive="active" routerLink="/pokemon-my-favorites"> My favorites </a>
-
+            <button mat-fab color="primary" *ngIf="userData" (click)="logout()">
+                <mat-icon>user</mat-icon>
+            </button>
         </div>
     </mat-toolbar-row>
 
